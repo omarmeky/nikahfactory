@@ -1,0 +1,132 @@
+﻿<style>
+    .Active {
+        background-color: green;
+    }
+    .Inactive{
+        background-color: red;
+    }
+</style>
+
+<div class="navbar" id="navbar" ng-include src="'html/navigation.html'"></div>
+<div class="main-container container-fluid">
+    <a class="menu-toggler" id="menu-toggler" href="javascript:void(null);" onclick="$('#sidebar').toggleClass('display');">
+        <span class="menu-text"></span>
+    </a>
+    <div class="sidebar" id="sidebar" ng-include src="'html/sidenavigation.html'"></div>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header position-relative">
+                <h1>
+                    Settings
+                </h1>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <label>
+                        Account Status
+                        <span ng-class="getActivity()" style="border-radius:3px;padding:2px;font-weight:bold;color:white;">{{getActivity()}}</span>
+                        <span class="lbl"></span>
+                        <span ng-show="!Active" class="help-button" data-rel="popover" data-trigger="hover" title="Your account is inactive. This may be due to an unverified Guardian Email (sisters), failed payment, or paused subscription.">?</span>
+                    </label>
+                </div>
+            </div>
+            <div class="hr"></div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="widget-box" ng-controller="ChangePasswordController">
+                        <div class="widget-header">
+                            <h4>Change Password</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form ng-submit="processForm()" style="text-align:center;">
+                                    <span class="input-icon">
+                                        <input type="password" placeholder="Old Password" ng-model="OldPassword" required />
+                                        <i class="icon-lock"></i>
+                                    </span>
+                                    <span class="input-icon">
+                                        <input type="password" placeholder="New Password" ng-model="NewPassword" required />
+                                        <i class="icon-lock"></i>
+                                    </span>
+                                    <br />
+                                    <button class="btn btn-info">Change</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="widget-box" ng-controller="UpdatePaymentController">
+                        <div class="widget-header">
+                            <h4>Update Payment Method</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form ng-submit="processForm()" style="text-align:center;">
+                                    <span class="input-icon">
+                                        <input type="tel" placeholder="Credit Card Number" ng-model="CreditCard" required />
+                                        <i class="icon-credit-card"></i>
+                                    </span>
+                                    <span class="input-icon">
+                                        <input type="tel" placeholder="Security Code" ng-model="SecurityCode" required />
+                                        <i class="icon-lock"></i>
+                                    </span>
+                                    <select class="input-icon" ng-model="ExpirationMonth" required>
+                                        <option value="">Expiration Month</option>
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select class="input-icon" ng-model="ExpirationYear" required>
+                                        <option value="">Expiration Year</option>
+                                        <option value="2014">14</option>
+                                        <option value="2015">15</option>
+                                        <option value="2016">16</option>
+                                        <option value="2017">17</option>
+                                        <option value="2018">18</option>
+                                        <option value="2019">19</option>
+                                        <option value="2020">20</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-info">Update</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="widget-box" ng-controller="SubscriptionController">
+                        <div class="widget-header">
+                            <h4>Manage Subscription</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main" style="text-align:center;">
+                                <p>{{Message}}</p>
+                                <button class="btn btn-info" ng-click="togglePause()">{{Button}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-47886183-1', 'nikahfactory.com');
+    ga('send', 'pageview');
+</script>

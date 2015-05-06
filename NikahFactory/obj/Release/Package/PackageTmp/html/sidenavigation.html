@@ -1,0 +1,38 @@
+﻿<ul class="nav nav-list">
+    <li ng-class="{active:isActive('/home')}">
+        <a href="#/home">
+            <i class="icon-home"></i>
+            <span class="menu-text"> Home </span>
+        </a>
+    </li>
+    <li ng-class="{active:isActive('/search')}">
+        <a href="#/search">
+            <i class="icon-search"></i>
+            <span class="menu-text"> Search </span>
+        </a>
+    </li>
+    <li ng-class="{active:isActive('/alerts')}">
+        <a href="#/alerts">
+            <i class="icon-bell"></i>
+            <span class="menu-text"> Alerts </span>
+        </a>
+    </li>
+    <li ng-class="{active:isActive('/messages')}">
+        <a href="#/messages">
+            <i class="icon-comments-alt"></i>
+            <span class="menu-text"> Messages </span>
+        </a>
+    </li>
+    <li ng-class="{active:isActive('/settings')}">
+        <a href="#/settings">
+            <i class="icon-cogs"></i>
+            <span class="menu-text"> Settings </span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(null);" ng-click="Logout()">
+            <i class="icon-off"></i>
+            <span class="menu-text"> Logout </span>
+        </a>
+    </li>
+</ul>

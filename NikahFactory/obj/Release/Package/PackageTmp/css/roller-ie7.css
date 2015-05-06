@@ -1,0 +1,59 @@
+/* Roller - IE7 Fixes */
+html, body, .page, .page section.main {
+  height: auto;
+}
+
+.page section.main .container {
+  height: auto;
+}
+
+.page section.main {
+  float: left;
+  clear: left;
+}
+
+/* Carousel */
+#introCarousel ol.carousel-indicators li {
+  text-align: left;
+  display: inline-block;
+  float: right;
+}
+
+#section-1 ul li {
+  line-height: 1em;
+  list-style-type: none;
+  margin-bottom: -5px;
+}
+
+/* Menu */
+.navbar .nav > li > a {
+  padding: 20px 10px 15px 10px;
+}
+
+/* Gallery */
+.gallery-item {
+  width: 31%;
+  margin: 1%;
+  float: left;
+}
+
+/* Buttons & Forms */
+.btn-mega {
+  padding: 10px 30px 20px 30px;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  border-radius: 2px 2px 2px 2px;
+  padding: 4px 2px;
+  height: auto;
+}
+
+/* Social Logins */
+ul.social li {
+  display: inline !important;
+  zoom: 1 !important;
+}
+ul.social li .roundall {
+  float: left;
+  text-indent: 2px;
+}

@@ -1,0 +1,1 @@
+This is a project I worked on some time ago. It has an Entity Framework/ASP.NET MVC Web API back end and an AngularJS front end. I removed css since some of it was proprietary. Also, some of the folders got jumbled up.

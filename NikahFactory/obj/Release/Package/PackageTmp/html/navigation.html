@@ -1,0 +1,67 @@
+﻿<link rel="stylesheet" href="css/ace-fonts.css" />
+<link rel="stylesheet" href="css/ace.css" />
+<link rel="stylesheet" href="css/ace-responsive.min.css" />
+<link rel="stylesheet" href="css/ace-skins.min.css" />
+<script type="text/javascript">
+    try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+</script>
+
+<div class="navbar-inner">
+    <div class="container-fluid">
+        <a href="#/home" class="brand">
+            <small>
+                <img style="height:23px; width:auto;" src="logo.png" />
+            </small>
+        </a><!-- /.brand -->
+
+        <ul class="nav ace-nav pull-right" >
+            <li class="purple" ng-controller="NewAlertsController">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(null);">
+                    <i class="icon-bell-alt" ng-class="{'icon-animated-bell':NewAlerts.length > 0}"></i>
+                    <span class="badge badge-important" ng-show="NewAlerts.length > 0">{{NewAlerts.length}}</span>
+                </a>
+
+                <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
+                    <li class="nav-header">
+                        <i class="icon-warning-sign"></i>
+                        <span ng-show="NewAlerts.length == 0">No new alerts</span>
+                        <span ng-show="NewAlerts.length > 0">{{NewAlerts.length}} new alert(s)</span>
+                    </li>
+                    <li ng-repeat="NewAlert in NewAlerts">
+                        {{NewAlert}}
+                    </li>
+                    <li>
+                        <a href="#/alerts">
+                            See all alerts
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="green" ng-controller="NewMessagesController">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(null);">
+                    <i class="icon-envelope" ng-class="{'icon-animated-vertical':NewMessages.length > 0}"></i>
+                    <span class="badge badge-success" ng-show="NewMessages.length > 0">{{NewMessages.length}}</span>
+                </a>
+
+                <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer" style="text-align:center">
+                    <li class="nav-header">
+                        <i class="icon-envelope-alt"></i>
+                        <span ng-show="NewMessages.length == 0">No new messages</span>
+                        <span ng-show="NewMessages.length > 0">{{NewMessages.length}} new messages(s)</span>
+                    </li>
+                    <li ng-repeat="NewMessage in NewMessages">
+                        {{NewMessage.sender}}
+                    </li>
+                    <li>
+                        <a href="#/messages">
+                            See all messages
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul><!-- /.ace-nav -->
+    </div><!-- /.container-fluid -->
+</div><!-- /.navbar-inner -->

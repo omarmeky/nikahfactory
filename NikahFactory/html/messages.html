@@ -1,0 +1,127 @@
+﻿<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
+<link href="css/social.css" rel="stylesheet" type="text/css" />
+<div class="navbar" id="navbar" ng-include src="'html/navigation.html'"></div>
+<div class="main-container container-fluid">
+    <a class="menu-toggler" id="menu-toggler" href="javascript:void(null);" onclick="$('#sidebar').toggleClass('display');">
+        <span class="menu-text"></span>
+    </a>
+    <div class="sidebar" id="sidebar" ng-include src="'html/sidenavigation.html'"></div>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header position-relative">
+                <h1>Messages</h1>
+            </div>
+            <div class="row-fluid" ng-show="Conversations.length == 0">
+                <div class="span12">
+                    <div class="alert alert-danger" style="text-align:center;">
+                        You currently have no Messages, try messaging others!
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-show="Conversations.length > 0">
+                <div class="social-box social-bordered">
+                    <div class="body">
+                        <!-- BEGIN LEFT PANEL - USER LIST -->
+                        <div class="span2">
+                            <!-- BEGIN USERS LIST -->
+                            <div id="users-list">
+                                <div class="content">
+                                    <!-- BEGIN USER INFO alert alert-block for active conversation -->
+                                    <div ng-repeat="Conversation in Conversations" class="well" ng-class="{'alert alert-block':Conversation.Selected}" ng-click="setActiveConversation(Conversation)" style="padding: 8px;margin-bottom: 10px;">
+                                        <div class="row-fluid">
+                                            <a href="javascript:void(null);" ng-click="Select(Conversation.Selected)">
+                                                <div class="span3">
+                                                    <img width="55" height="55" src="images/malesmall.png" ng-show="Conversation.Gender == 'Brother'" />
+                                                    <img width="55" height="55" src="images/femalesmall.png" ng-show="Conversation.Gender == 'Sister'" />
+                                                </div>
+                                                <div class="span9">
+                                                    <p>{{Conversation.User}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- END USER INFO -->
+                                </div>
+                            </div>
+                            <!-- END USERS LIST -->
+                        </div>
+                        <!-- END LEFT PANEL - USER LIST -->
+                        <!-- BEGIN RIGHT PANEL - CURRENT CHAT -->
+                        <div class="span10">
+                            <!-- BEGIN CHAT BOX -->
+                            <div class="social-box social-blue social-bordered">
+                                <div class="header" style="margin-top:0px;">
+                                    <h4>{{ActiveConversation.User}}</h4>
+                                    <div class="tools">
+                                        <button class="btn btn-small btn-info" style="padding:3px 8px 0px;margin-top:0px;" ng-click="ViewProfile(ActiveConversation.UserID)"><i class="icon-user"></i></button>
+                                    </div>
+                                </div>
+                                <!-- BEGIN CHAT WINDOW -->
+                                <div class="body chat">
+                                    <!-- BEGIN CHAT MESSAGES LIST -->
+                                    <div class="chat-messages-list" style="height:400px">
+                                        <div class="content">
+                                            <!-- BEGIN CHAT MESSAGE -->
+                                            <div class="chat-message" ng-repeat="Message in ActiveConversation.Messages" ng-class="{'pull-right':Message.Me}" style="float:none;">
+                                                <div class="chat-message-avatar" ng-show="Message.Gender == 'Brother'">
+                                                    <img width="55" height="55" src="images/malesmall.png"/>
+                                                </div>
+                                                <div class="chat-message-avatar" ng-show="Message.Gender == 'Sister'">
+                                                    <img width="55" height="55" src="images/femalesmall.png"/>
+                                                </div>
+                                                <div class="chat-message-body">
+                                                    <div class="chat-message-body-header">{{Message.Sender}}</div>
+                                                    <div class="chat-message-body-content">
+                                                        {{Message.Body}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END CHAT MESSAGE -->
+                                        </div>
+                                    </div>
+                                    <!-- END CHAT MESSAGES LIST -->
+                                    <!-- BEGIN CHAT COMPOSER -->
+                                    <div class="chat-composer">
+                                        <div class="chat-form">
+                                            <div class="chat-input">
+                                                <input id="composerMessage" type="text" placeholder="Type a message..." ng-model="NewMessage">
+                                            </div>
+                                            <button class="btn btn-primary chat-sender" ng-click="Send()" style="border:none;line-height:26px;padding:4px 12px 0px;">
+                                                <span class="icon icon-share-alt "></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- END CHAT COMPOSER -->
+                                </div>
+                                <!-- END CHAT WINDOW -->
+                            </div>
+                            <!-- END CHAT BOX -->
+                        </div>
+                        <!-- END RIGHT PANEL - CURRENT CHAT -->
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ViewProfile" style="display:none;" ng-include src="'html/profile.html'"></div>
+<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+<script>
+    $(function () {
+        $(".chat-messages-list .content").slimScroll({ start: "bottom", railVisible: true, alwaysVisible: true, height: '400px' });
+        setTimeout(function () {
+            $(".chat-messages-list .content").slimScroll({ scrollBy: $(".chat-messages-list .content").height() });
+            $(".chat-messages-list .content").slimScroll({ scrollBy: '10000px' });
+        }, 500);
+        $("#users-list .content").slimScroll({ "height": '400px' });
+    });
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-47886183-1', 'nikahfactory.com');
+    ga('send', 'pageview');
+</script>

@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{756B28E5-AC6A-41E7-B84C-E8E2D3A1DD27}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NikahFactory</RootNamespace>
+    <AssemblyName>NikahFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe">
+      <HintPath>..\packages\Stripe.1.11.0\lib\net40\Stripe.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIModels\AlertsResponse.cs" />
+    <Compile Include="APIModels\ConversationResponse.cs" />
+    <Compile Include="APIModels\MessageResponse.cs" />
+    <Compile Include="APIModels\ReplyRequest.cs" />
+    <Compile Include="APIModels\SearchResponse.cs" />
+    <Compile Include="APIControllers\AccountController.cs" />
+    <Compile Include="APIModels\ChangePasswordRequest.cs" />
+    <Compile Include="APIModels\ContactRequest.cs" />
+    <Compile Include="APIModels\RegisterRequest.cs" />
+    <Compile Include="APIModels\LoginRequest.cs" />
+    <Compile Include="APIModels\SearchRequest.cs" />
+    <Compile Include="APIModels\SendMessageRequest.cs" />
+    <Compile Include="APIModels\UpdatePaymentRequest.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AuthToken.cs" />
+    <Compile Include="Models\Conversation.cs" />
+    <Compile Include="Models\Guardian.cs" />
+    <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="NikahFactoryContext.cs" />
+    <Compile Include="NikahFactoryRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\alertscontroller.js" />
+    <Content Include="app\config.js" />
+    <Content Include="app\factories.js" />
+    <Content Include="app\homecontroller.js" />
+    <Content Include="app\landingcontroller.js" />
+    <Content Include="app\messagescontroller.js" />
+    <Content Include="app\searchcontroller.js" />
+    <Content Include="app\settingscontroller.js" />
+    <Content Include="bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\ace-fonts.css" />
+    <Content Include="css\ace-responsive.min.css" />
+    <Content Include="css\ace-skins.min.css" />
+    <Content Include="css\ace.css" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\chosen.min.css" />
+    <Content Include="css\datepicker.css" />
+    <Content Include="css\font-awesome-ie7.css" />
+    <Content Include="css\font-awesome-ie7.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\fontawesome.css" />
+    <Content Include="css\fontawesome3.css" />
+    <Content Include="css\forms.css" />
+    <Content Include="css\images\overlay-half.png" />
+    <Content Include="css\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="css\jquery.pageslide.css" />
+    <Content Include="css\jquery.sidr.light.css" />
+    <Content Include="css\magnific-popup.min.css" />
+    <Content Include="css\roboto.css" />
+    <Content Include="css\roller-ie7.css" />
+    <Content Include="css\roller-ie8.css" />
+    <Content Include="css\roller-responsive.css" />
+    <Content Include="css\roller.blueberry.css" />
+    <Content Include="css\social.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="html\home.html" />
+    <Content Include="html\landing.html" />
+    <Content Include="html\alerts.html" />
+    <Content Include="html\messages.html" />
+    <Content Include="html\navigation.html" />
+    <Content Include="html\profile.html" />
+    <Content Include="html\search.html" />
+    <Content Include="html\settings.html" />
+    <Content Include="html\sidenavigation.html" />
+    <Content Include="images\female.png" />
+    <Content Include="images\femalesmall.png" />
+    <Content Include="images\male.png" />
+    <Content Include="images\malesmall.png" />
+    <Content Include="images\NFBanner.png" />
+    <Content Include="images\NFLogoTransparent.png" />
+    <Content Include="images\NFLogoTransparent_%402x.png" />
+    <Content Include="index.html" />
+    <Content Include="js\ace-elements.min.js" />
+    <Content Include="js\ace-extra.min.js" />
+    <Content Include="js\ace.min.js" />
+    <Content Include="js\bootbox.min.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\chosen.jquery.min.js" />
+    <Content Include="js\countries2.js" />
+    <Content Include="js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="js\jquery.fitvids.js" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.mobile.custom.min.js" />
+    <Content Include="js\jquery.pageslide.min.js" />
+    <Content Include="js\jquery.retina.js" />
+    <Content Include="js\jquery.sidr.min.js" />
+    <Content Include="js\jquery.slimscroll.min.js" />
+    <Content Include="js\jquery.ui.touch-punch.min.js" />
+    <Content Include="js\modernizr.custom.js" />
+    <Content Include="js\placeholders.min.js" />
+    <Content Include="js\respond.min.js" />
+    <Content Include="js\script.js" />
+    <Content Include="logo.png" />
+    <Content Include="logo_%402x.png" />
+    <Content Include="js\angular-route.js" />
+    <Content Include="js\angular.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" />
+    <Content Include="font\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" />
+    <None Include="Properties\PublishProfiles\nikahfactory.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55162</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55162/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
